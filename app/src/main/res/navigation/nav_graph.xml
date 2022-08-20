@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/superHeroListFragment">
+    <fragment
+        android:id="@+id/superHeroListFragment"
+        android:name="com.miguelaguilar.superherocodechallengecoppel.ui.fragment.SuperHeroListFragment"
+        android:label="fragment_list_of_super_heros"
+        tools:layout="@layout/fragment_list_of_super_heros">
+        <action
+            android:id="@+id/action_superHeroListFragment_to_heroDetailFragment"
+            app:destination="@id/heroDetailFragment">
+            <argument
+                android:name="superHeroId"
+                app:argType="integer"
+                android:defaultValue="-1" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/heroDetailFragment"
+        android:name="com.miguelaguilar.superherocodechallengecoppel.ui.fragment.HeroDetailFragment"
+        android:label="fragment_hero_details"
+        tools:layout="@layout/fragment_hero_details" >
+        <action
+            android:id="@+id/action_heroDetailFragment_to_fragmentLinksList"
+            app:destination="@id/fragmentLinksList">
+
+            <argument
+                android:name="superHeroId"
+                app:argType="string"
+                android:defaultValue="" />
+
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentLinksList"
+        android:name="com.miguelaguilar.superherocodechallengecoppel.ui.fragment.FragmentLinksList"
+        android:label="fragment_links_list"
+        tools:layout="@layout/fragment_links_list" >
+        <action
+            android:id="@+id/action_fragmentLinksList_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.miguelaguilar.superherocodechallengecoppel.ui.fragment.WebViewFragment"
+        android:label="WebViewFragment" />
+
+</navigation>

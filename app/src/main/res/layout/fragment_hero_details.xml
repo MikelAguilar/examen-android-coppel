@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.miguelaguilar.superherocodechallengecoppel.ui.fragment.HeroDetailFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.miguelaguilar.superherocodechallengecoppel.ui.viewmodel.GeneralViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guide_speciality"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent=".35" />
+
+                <ImageView
+                    android:id="@+id/hero_pic"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/guide_speciality"
+                    />
+
+                <TextView
+                    android:id="@+id/hero_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/guide_speciality"
+                    android:layout_margin="20dp"
+                    android:textSize="24dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/hero_description"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/hero_name"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    />
+
+                <Button
+                    android:id="@+id/btn_comics"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/hero_description"
+                    android:layout_marginTop="10dp"
+                    android:text="Ver links de comics"
+                    android:backgroundTint="@color/red"
+                    />
+                <Button
+                    android:id="@+id/btn_series"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btn_comics"
+                    android:layout_marginTop="10dp"
+                    android:text="Ver links de series"
+                    android:textColor="@color/black"
+                    android:backgroundTint="@color/yellow"
+                    />
+                <Button
+                    android:id="@+id/btn_stories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btn_series"
+                    android:layout_marginTop="10dp"
+                    android:text="Ver links de series"
+                    android:textColor="@color/black"
+                    android:backgroundTint="@color/green"
+                    />
+
+                <Button
+                    android:id="@+id/btn_events"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btn_stories"
+                    android:layout_marginTop="10dp"
+                    android:text="Ver links de eventos"
+                    android:backgroundTint="@color/blue"
+                    />
+
+                <Button
+                    android:id="@+id/btn_urls"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btn_events"
+                    android:layout_marginTop="10dp"
+                    android:text="Ver urls"
+
+                    />
+
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <FrameLayout
+                android:id="@+id/progress_frame"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/progress_bg"
+                android:visibility="gone"
+                mutableVisibility="@{viewModel.isLoading()}"
+                >
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:foregroundGravity="center"
+                    android:indeterminateTint="#BD1616" />
+
+            </FrameLayout>
+
+        </FrameLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>
